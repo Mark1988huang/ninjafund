@@ -1,0 +1,30 @@
+<div id="container" class="logincontainer" style="height: 409px; ">
+  <header>
+    <!-- Logo -->
+    <h1 id="logo">Admin Control Panel</h1>
+  </header>
+  <!-- The application "window" -->
+  <div id="application">
+    <!-- The content -->
+    <section id="content">
+      <br><br>
+      <form action="/admincp/">
+        <section>
+          <label for="username">Username</label>
+          <div>
+            <input type="text" name="username" placeholder="Username" class="required">
+          </div>
+        </section>
+        <section>
+          <label for="password">Password</label>
+          <div>
+            <input type="password" name="password" id="password" placeholder="Password" class="required">
+            <br><br>
+            <input type="submit" value="Login" class="button primary">
+            <a href="#" class="button">Cancel</a>
+          </div>
+        </section>
+      </form>
+    </section>
+  </div>
+</div>
