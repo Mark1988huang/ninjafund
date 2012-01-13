@@ -1,0 +1,10 @@
+/* GLOBAL ELEMENTS
+----------------------------------------------------------*/
+ 
+* { font-family: Arial, Helvetica, sans-serif; }
+*:focus { outline: none; }
+
+html, body { height: 100%; }
+body { background-color: #000000; margin: 0 auto; padding: 0; }
+
+.page { display: block; width: 1274px; margin: 0 auto; min-height: 808px; background: #000000 url('/resources/images/ninja-kanji.png') no-repeat fixed center; } 
