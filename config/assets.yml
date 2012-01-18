@@ -1,0 +1,28 @@
+template_function: _.template
+
+javascripts:
+  common:
+    - public/scripts/underscore.js
+    - public/scripts/jquery-1.7.1.js
+    - public/scripts/backbone.js
+  ninjafund:
+    - public/backbone/**/*.js
+  jst:
+    - app/templates/**/*.jst
+  theme:
+    - public/theme/excanvas.js
+    - public/theme/jquery.livesearch.js
+    - public/theme/jquery.visualize.js
+    - public/theme/jquery.datatables.js
+    - public/theme/jquery.placeholder.js
+    - public/theme/jquery.selectskin.js
+    - public/theme/jquery.checkboxes.js
+    - public/theme/jquery.wymeditor.js
+    - public/theme/jquery.validate.js
+    - public/theme/jquery.inputtags.js
+    - public/theme/notifications.js
+    - public/theme/application.js
+
+stylesheets:
+  ninjafund.base:
+    - public/stylesheets/*.css
