@@ -1,3 +1,5 @@
 module NinjaFund
-  require_relative 'main'
+  require_relative './base'
+  require_relative './application'
+  require_relative './security'
 end
