@@ -23,7 +23,7 @@
  *     ensure that you either have "example_alt_pagination" as a body class name, or better yet,
  *     modify that selector.
  *   Note that the path used for Images is relative. All images are by default located in
- *     ../images/datatables/ - relative to this CSS file.
+ *     /images/datatables/ - relative to this CSS file.
  */
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -69,7 +69,7 @@
 }
 
 .dataTables_filter input {
-  background: url(../images/search.png) 6px 6px no-repeat #FEFFFE;
+  background: url(/images/search.png) 6px 6px no-repeat #FEFFFE;
   border: 1px solid #c7c7c7;
   border-radius: 20px;
   box-shadow: 0 1px 0 #FEFFFE;
@@ -107,20 +107,20 @@
 }
 
 .paginate_disabled_previous {
-	background-image: url('../images/datatables/back_disabled.png');
+	background-image: url('/images/datatables/back_disabled.png');
 }
 
 .paginate_enabled_previous {
-	background-image: url('../images/datatables/back_enabled.png');
+	background-image: url('/images/datatables/back_enabled.png');
 	cursor: pointer;
 }
 
 .paginate_disabled_next {
-	background-image: url('../images/datatables/forward_disabled.png');
+	background-image: url('/images/datatables/forward_disabled.png');
 }
 
 .paginate_enabled_next {
-	background-image: url('../images/datatables/forward_enabled.png');
+	background-image: url('/images/datatables/forward_enabled.png');
 	cursor: pointer;
 }
 
@@ -181,23 +181,23 @@ table.display td.center {
  */
 
 .sorting_asc {
-	background: url('../images/datatables/sort_asc.png') no-repeat center right;
+	background: url('/images/datatables/sort_asc.png') no-repeat center right;
 }
 
 .sorting_desc {
-	background: url('../images/datatables/sort_desc.png') no-repeat center right;
+	background: url('/images/datatables/sort_desc.png') no-repeat center right;
 }
 
 .sorting {
-	background: url('../images/datatables/sort_both.png') no-repeat center right;
+	background: url('/images/datatables/sort_both.png') no-repeat center right;
 }
 
 .sorting_asc_disabled {
-	background: url('../images/datatables/sort_asc_disabled.png') no-repeat center right;
+	background: url('/images/datatables/sort_asc_disabled.png') no-repeat center right;
 }
 
 .sorting_desc_disabled {
-	background: url('../images/datatables/sort_desc_disabled.png') no-repeat center right;
+	background: url('/images/datatables/sort_desc_disabled.png') no-repeat center right;
 }
 
 

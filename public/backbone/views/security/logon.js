@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Wed, 18 Jan 2012 02:01:54 GMT from
+/* DO NOT MODIFY. This file was compiled Wed, 18 Jan 2012 22:54:44 GMT from
  * /home/jordanyaker/Documents/My Projects/ninjafund/app/views/security/logon.coffee
  */
 
@@ -19,20 +19,19 @@
 
     LogonView.prototype.template = JST['security/logon'];
 
-    LogonView.prototype.el = 'body';
+    LogonView.prototype.id = 'container';
 
     LogonView.prototype.initialize = function() {
-      _.bindAll(this);
       return this.render();
     };
 
     LogonView.prototype.destroy = function() {
-      $(this.el).empty();
+      this.el.empty();
       return false;
     };
 
     LogonView.prototype.render = function() {
-      $(this.el).html(this.template());
+      this.el.html(this.template());
       return this;
     };
 

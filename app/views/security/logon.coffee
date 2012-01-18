@@ -3,18 +3,17 @@ NF.Views.Security ||= {}
 class NF.Views.Security.LogonView extends Backbone.View
   template: JST['security/logon']
 
-  el: 'body'
+  id: 'container'
 
   initialize: ->
-    _.bindAll @
     @render()
 
   destroy: () ->
-    $(@el).empty()
+    @el.empty()
     return false
 
   render: ->
-    $(@el).html(@template())
+    @el.html(@template())
     return this
 
   events:

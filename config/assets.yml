@@ -1,4 +1,5 @@
 template_function: _.template
+compress_assets: off
 
 javascripts:
   common:
