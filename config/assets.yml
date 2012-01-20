@@ -7,6 +7,7 @@ javascripts:
     - public/scripts/jquery-1.7.1.js
     - public/scripts/backbone.js
   ninjafund:
+    - public/backbone/ninjafund.js
     - public/backbone/**/*.js
   jst:
     - app/templates/**/*.jst
