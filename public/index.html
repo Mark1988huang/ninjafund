@@ -8,25 +8,42 @@
   <link rel="stylesheet" type="text/css" href="/stylesheets/ninjafund.ie.css" />
   <script src="http://http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  <script type="text/javascript" src="/assets/jquery.js"></script>
 </html>
 <body>
   <div id="gradient">
     <div id="stars">
       <div id="container">
+        <div id="loading"></div>
       </div>
     </div>
   </div>
 
   <!-- JS INCLUDES -->
-  <script type="text/javascript" src="/assets/common.js"></script>
+  <!-- <script type="text/javascript" src="/assets/common.js"></script>-->
 
   <!-- BACKBONE APPLICATION -->
-  <script type="text/javascript" src="/assets/jst.js"></script>
-  <script type="text/javascript" src="/assets/ninjafund.js"></script>
+  <!-- <script type="text/javascript" src="/assets/jst.js"></script> -->
+  <!-- <script type="text/javascript" src="/assets/ninjafund.js"></script> -->
+  <!-- <script type="text/javascript" src="/assets/theme.js"></script> -->
+
+  <!-- DYNAMIC APPLICATION LOADING -->
   <script type="text/javascript">
-    $(document).ready(function () {
-      var logon = new NF.Views.Security.LogonView; 
+    var _scripts = [ '/assets/common.js', '/assets/jst.js', '/assets/ninjafund.js', '/assets/theme.js' ];
+    $(document).ready(function() {
+      var load = function () {
+        var index = 0, success = function () {
+          if (index == 3) {
+            NF.ViewPort = new NF.Views.Security.LogonView
+          } else {
+            $.getScript(_scripts[index++], success);
+          }
+        };
+
+        $.getScript(_scripts[index++], success);
+      };
+
+      setTimeout(load, 300);
     });
   </script>
-  <script type="text/javascript" src="/assets/theme.js"></script>
 </body>
