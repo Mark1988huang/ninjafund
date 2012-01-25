@@ -2,9 +2,10 @@ template_function: _.template
 compress_assets: off
 
 javascripts:
+  jquery:  
+    - public/scripts/jquery-1.7.1.js
   common:
     - public/scripts/underscore.js
-    - public/scripts/jquery-1.7.1.js
     - public/scripts/backbone.js
   ninjafund:
     - public/backbone/ninjafund.js
