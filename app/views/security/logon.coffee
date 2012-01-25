@@ -5,7 +5,7 @@ class NF.Views.Security.LogonView extends Backbone.View
 
   el: '#container'
 
-  initialize: ->
+  initialize: =>
     @model = new NF.Models.Security.LogonModel
     @render()
 
