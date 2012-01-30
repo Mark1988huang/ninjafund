@@ -16,6 +16,7 @@ body {
 }
 
 #gradient {
+  background: url(/images/ninja-kanji.png) no-repeat fixed center;
 }
 
 #container {
