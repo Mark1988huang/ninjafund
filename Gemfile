@@ -4,13 +4,14 @@ source 'http://rubygems.org'
 # declare base dependencies
 gem 'sinatra', 
   '1.3.2', 
-  :require => 'sinatra/base'
+  :require => ['sinatra/base', 'sinatra' ]
 gem 'sinatra-contrib', '1.3.1'
 gem 'thin', '1.3.1'
 gem 'rack-ssl', 
   '1.3.2', 
   :require => 'rack/ssl'
 gem 'warden', '1.1.0'
+gem 'data_mapper', '1.2.0'
 
 # setup the development group dependencies
 group :development do
@@ -22,7 +23,20 @@ group :development do
   gem 'therubyracer', '0.9.9'
 end
 
-# setup the test group dependencies
-group :test do
-  gem 'rspec'
+# setup the test/development group dependencies
+group :development, :test do
+  gem 'rack-test', 
+    '0.6.1',
+    :require => 'rack/test'
+  gem 'rspec',
+    '2.8.0',
+    :require => 'rspec/expectations'
+  gem 'watchr', '0.7'
+  gem 'guard', '1.0.0'
+  gem 'guard-bundler', '0.1.3'
+  gem 'guard-rspec', '0.6.0'
+  gem 'libnotify', '0.7.2'
+  gem 'mocha', 
+    '0.10.4', 
+    :require => false
 end  
