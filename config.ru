@@ -26,6 +26,9 @@ application = Rack::Builder.app do
       use Barista::Filter
       Barista.root = './app'
       Barista.output_root = './public/backbone'
+      
+      # setup the DataMapper configuration
+      DataMapper.setup(:default, ENV['DATABASE_URL'] || 'mysql://localhost/ninjafund.oltp')
 	  when 'production'
 	    # force the use of SSL for the application
 	    use Rack::SSL
@@ -41,8 +44,8 @@ application = Rack::Builder.app do
   
 	# load the Sinatra application modules using the cascaded configuration
   run Rack::Cascade.new [ 
-    NinjaFund::Application,
-    NinjaFund::Errors
+    NinjaFund::Routes::Application,
+    NinjaFund::Routes::Errors
   ]
 end
 
