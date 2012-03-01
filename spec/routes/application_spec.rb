@@ -6,13 +6,13 @@ describe "The basic application" do
       # enable sessions for the application
       use Rack::Session::Cookie, :secret => '732c1db7478b81d72465c55cc6940f46'
       
-      # configure the use of Warden for authentication
+      # setup the mock warden authenticastion
       use Warden::Manager do |manager|
         manager.default_strategies :password
       end
       
 	    # load the Sinatra application modules using the cascaded configuration
-      run Rack::Cascade.new [ NinjaFund::Routes::Application ]
+      run NinjaFund::Routes::Application
     end
   end
 
