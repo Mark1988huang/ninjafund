@@ -11,7 +11,7 @@ module NinjaFund
       post '/logon' do
         redirect '/' if warden.authenticated?
         
-        user = User.find(:email => params["username"])
+        user = NinjaFund::Model::User.find(:email => params["username"])
         # TODO: Handle the authentication of the user using the supplied details.
       end
       

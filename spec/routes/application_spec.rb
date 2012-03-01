@@ -64,9 +64,11 @@ describe "The basic application" do
     end
     
     context "and the request is authenticated" do
-      it "should return the site index page" do
+      before(:each) do
         login_as "test" # update with a valid user object
-
+      end
+    
+      it "should return the site index page" do
         get '/'
         last_response.should be_ok
         
@@ -79,9 +81,11 @@ describe "The basic application" do
   
   context "when logging in" do
     context "and the request is authenticated" do
-      it "should redirect to the site root" do
+      before(:each) do 
         login_as "test" # update with a valid user object
+      end
         
+      it "should redirect to the site root" do
         post '/logon'
         last_response.should be_redirect; follow_redirect!
         last_request.url.should == 'http://example.org/'
@@ -91,7 +95,7 @@ describe "The basic application" do
     context "and the request is not authenticated" do
       context "and the specified user does not exist" do
         it "should return the view " do
-          User.expects(:find).with(:email => 'invalid').returns(nil)
+          NinjaFund::Model::User.expects(:find).with(:email => 'invalid').returns(nil)
           
           post '/logon', :username => 'invalid'
           last_response.should be_ok 
