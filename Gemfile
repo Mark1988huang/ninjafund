@@ -12,6 +12,7 @@ gem 'rack-ssl',
   :require => 'rack/ssl'
 gem 'warden', '1.1.0'
 gem 'data_mapper', '1.2.0'
+gem 'dm-mysql-adapter'
 
 # setup the development group dependencies
 group :development do
