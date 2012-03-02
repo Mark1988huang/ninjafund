@@ -37,10 +37,17 @@ application = Rack::Builder.app do
   # enable sessions for the application
   use Rack::Session::Cookie, :secret => '732c1db7478b81d72465c55cc6940f46'
   
-  # configure the use of Warden for authentication
-  use Warden::Manager do |manager|
-    manager.default_strategies :password
+  # set the strategies for use by Warden
+  Warden::Manager::Strategies.add :password, NinjaFund::Security::PasswordStrategy
+  
+  # configure warden's settings
+  use Warden::Manager do |config|
+    config.default_strategies :password
   end
+  
+  # setup the serialization of identity parameters in and out of the session
+  Warden::Manager.serialize_into_session { |user| user.id }
+  Warden::Manager.serialize_from_session { |id| NinjaFund::Model::User.get(id) }
   
 	# load the Sinatra application modules using the cascaded configuration
   run Rack::Cascade.new [ 
