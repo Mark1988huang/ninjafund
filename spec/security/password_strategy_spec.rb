@@ -1,7 +1,5 @@
 require_relative '../spec_helper'
 
-require 'pp'
-
 describe "Password Strategy" do
   def app
     Rack::Builder.new do

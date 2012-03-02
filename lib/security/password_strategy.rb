@@ -1,4 +1,3 @@
-require 'pp'
 module NinjaFund
   module Security
     class PasswordStrategy < Warden::Strategies::Base
