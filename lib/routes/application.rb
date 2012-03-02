@@ -4,8 +4,7 @@ module NinjaFund
       get '/logon' do
         redirect '/' if warden.authenticated?
         
-        file = File.join( settings.public_folder, 'logon.html' )
-        File.open file
+        erb :logon
       end
       
       post '/logon' do
