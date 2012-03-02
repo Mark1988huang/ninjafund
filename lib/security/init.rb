@@ -1,5 +1,5 @@
 module NinjaFund
   module Security
-    require_relative './passwordstrategy'
+    require_relative './password_strategy'
   end
 end
