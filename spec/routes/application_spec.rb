@@ -30,7 +30,8 @@ describe "The basic application" do
     
     context "and the request is authenticated" do
       it "should redirect to the site root" do
-        login_as "test" # update with a valid user object
+        u = NinjaFund::Model::User.new; u.id, u.email = 1, 'test@test.com'
+        login_as u
         
         get '/logon'
         last_response.should be_redirect; follow_redirect!
@@ -65,7 +66,8 @@ describe "The basic application" do
     
     context "and the request is authenticated" do
       before(:each) do
-        login_as "test" # update with a valid user object
+        u = NinjaFund::Model::User.new; u.id, u.email = 1, 'test@test.com'
+        login_as u
       end
     
       it "should return the site index page" do
@@ -82,7 +84,8 @@ describe "The basic application" do
   context "when logging in" do
     context "and the request is authenticated" do
       before(:each) do 
-        login_as "test" # update with a valid user object
+        u = NinjaFund::Model::User.new; u.id, u.email = 1, 'test@test.com'
+        login_as u
       end
         
       it "should redirect to the site root" do
