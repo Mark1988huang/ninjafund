@@ -19,14 +19,7 @@ module NinjaFund
         
       property :password,
         BCryptHash,
-        :required => true   
-        
-      #
-      # Methods
-      #    
-      def authenticate(password)
-        return true if @password == password
-      end
+        :required => true
     end
   end
 end
