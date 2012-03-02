@@ -5,6 +5,9 @@ module NinjaFund
         # set the path to the public folder for static files
         set :public_folder, File.expand_path( '../../public', File.dirname(__FILE__) )
         
+        # set the path to the templates folder
+        set :views, File.expand_path( '../../views', File.dirname(__FILE__) )
+        
         # enable the use of the event-machine gem when processing requests
         enable :threaded
         
