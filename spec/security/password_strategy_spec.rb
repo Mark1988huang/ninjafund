@@ -55,7 +55,7 @@ describe "Password Strategy" do
     it "should fail if the password is incorrect" do
       get '/', :username => 'test@test.com', :password => 'incorrect'
       
-      u = NinjaFund::Model::User.new; u[:email], u[:password] = 'test@test.com', 'password'      
+      u = NinjaFund::Model::User.new; u.email, u.password = 'test@test.com', 'password'      
       NinjaFund::Model::User.expects(:first).with(:email => 'test@test.com').returns(u)
       
       @strategy.authenticate!; @strategy.result.should == :failure
@@ -64,7 +64,7 @@ describe "Password Strategy" do
     it "should be successful when the password is correct" do
       get '/', :username => 'test@test.com', :password => 'password'
      
-      u = NinjaFund::Model::User.new; u[:email], u[:password] = 'test@test.com', 'password'      
+      u = NinjaFund::Model::User.new; u.email, u.password = 'test@test.com', 'password'      
       NinjaFund::Model::User.expects(:first).with(:email => 'test@test.com').returns(u)
       
       @strategy.authenticate!; @strategy.result.should == :success
