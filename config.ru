@@ -37,13 +37,13 @@ application = Rack::Builder.app do
   # enable sessions for the application
   use Rack::Session::Cookie, :secret => '732c1db7478b81d72465c55cc6940f46'
   
-  # set the strategies for use by Warden
-  Warden::Manager::Strategies.add :password, NinjaFund::Security::PasswordStrategy
-  
   # configure warden's settings
   use Warden::Manager do |config|
     config.default_strategies :password
   end
+  
+  # set the strategies for use by Warden
+  Warden::Strategies.add :password, NinjaFund::Security::PasswordStrategy
   
   # setup the serialization of identity parameters in and out of the session
   Warden::Manager.serialize_into_session { |user| user.id }
