@@ -21,7 +21,10 @@ end
 RSpec.configure do |conf|
   conf.include Rack::Test::Methods
   conf.include Warden::Test::Helpers
+
   conf.mock_framework = :mocha
 end
+
+before{ Warden.test_mode! }
 
 after{ Warden.test_reset! }

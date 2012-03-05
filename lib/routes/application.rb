@@ -8,10 +8,11 @@ module NinjaFund
       end
       
       post '/logon' do
-        redirect '/' if warden.authenticated?
+        if warden.authenticated? || warden.authenticate?
+          redirect session.delete(:return_to) || '/'
+        end
         
-        user = NinjaFund::Model::User.find(:email => params["username"])
-        # TODO: Handle the authentication of the user using the supplied details.
+        erb :logon, :locals => { :error_message => warden.message } 
       end
       
       get // do
@@ -21,6 +22,16 @@ module NinjaFund
         end
         
         file = File.join( settings.public_folder, 'index.html' )
+        File.open file
+      end
+      
+      error do
+        file = File.join( settings.public_folder, '500.html' )
+        File.open file
+      end
+      
+      not_found do
+        file = File.join( settings.public_folder, '404.html' )
         File.open file
       end
     end
