@@ -35,7 +35,9 @@ application = Rack::Builder.app do
 	end
 
   # enable sessions for the application
-  use Rack::Session::Cookie, :secret => '732c1db7478b81d72465c55cc6940f46'
+  use Rack::Session::Cookie,
+    :key => 'rack.session',
+    :secret => '732c1db7478b81d72465c55cc6940f46'
   
   # configure warden's settings
   use Warden::Manager do |config|
@@ -51,8 +53,7 @@ application = Rack::Builder.app do
   
 	# load the Sinatra application modules using the cascaded configuration
   run Rack::Cascade.new [ 
-    NinjaFund::Routes::Application,
-    NinjaFund::Routes::Errors
+    NinjaFund::Routes::Application
   ]
 end
 
