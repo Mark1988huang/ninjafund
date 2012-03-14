@@ -1,2 +1,59 @@
 template_function: _.template
 compress_assets: off
+
+stylesheets:
+    common:
+        - public/css/main.css
+    
+javascripts:
+    common:
+        - public/js/jquery-1.7.1.js
+        - public/js/spinner/jquery.mousewheel.js
+        - public/js/spinner/ui.spinner.js
+        - public/js/jquery-ui-1.8.18.js 
+        - public/js/fileManager/elfinder.min.js
+        - public/js/wysiwyg/jquery.wysiwyg.js
+        - public/js/wysiwyg/wysiwyg.image.js
+        - public/js/wysiwyg/wysiwyg.link.js
+        - public/js/wysiwyg/wysiwyg.table.js
+        - public/js/flot/jquery.flot.js
+        - public/js/flot/jquery.flot.pie.js
+        - public/js/flot/excanvas.min.js
+        - public/js/flot/jquery.flot.resize.js
+        - public/js/dataTables/jquery.dataTables.js
+        - public/js/dataTables/colResizable.min.js
+        - public/js/forms/forms.js
+        - public/js/forms/autogrowtextarea.js
+        - public/js/forms/autotab.js
+        - public/js/forms/jquery.validationEngine-en.js
+        - public/js/forms/jquery.validationEngine.js
+        - public/js/forms/jquery.dualListBox.js
+        - public/js/forms/jquery.filestyle.js
+        - public/js/colorPicker/colorpicker.js
+        - public/js/uploader/plupload.js
+        - public/js/uploader/plupload.html5.js
+        - public/js/uploader/plupload.html4.js
+        - public/js/uploader/jquery.plupload.queue.js
+        - public/js/ui/progress.js
+        - public/js/ui/jquery.jgrowl.js
+        - public/js/ui/jquery.tipsy.js
+        - public/js/ui/jquery.alerts.js
+        - public/js/wizards/jquery.form.wizard.js
+        - public/js/wizards/jquery.validate.js
+        - public/js/wizards/jquery.smartWizard.min.js
+        - public/js/jBreadCrumb.1.1.js
+        - public/js/cal.min.js
+        - public/js/jquery.collapsible.min.js
+        - public/js/jquery.ToTop.js
+        - public/js/jquery.listnav.js
+        - public/js/jquery.sourcerer.js
+        - public/js/jquery.timeentry.min.js
+        - public/js/jquery.prettyPhoto.js
+        - public/js/custom.js
+        - public/js/underscore.js
+        - public/js/backbone.js    
+    jst:
+        - app/templates/**/*.jst
+    application:
+        - public/backbone/ninjafund.js
+        - public/backbone/**/*.js

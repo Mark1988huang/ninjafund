@@ -8,31 +8,26 @@ module NinjaFund
       end
       
       post '/logon' do
-        if warden.authenticated? || warden.authenticate?
-          redirect session.delete(:return_to) || '/'
-        end
+        redirect '/' if warden.authenticated? 
         
-        erb :logon, :locals => { :error_message => warden.message } 
+        redirect (session.delete(:return_to) || '/') if warden.authenticate?
+
+        erb :logon, :locals => { :error_message => warden.message }
       end
       
-      get // do
+      get '/logout' do
+        warden.logout if warden.authenticated?
+        
+        redirect '/'
+      end
+      
+      get %r{^(?=(/?)(.*))((?!current|assets|api).)*$} do
         if warden.unauthenticated?
-          session[:return_to] = request.path
+          session[:return_to] = request.path if request.path != '/'
           redirect '/logon'
         end
         
-        file = File.join( settings.public_folder, 'index.html' )
-        File.open file
-      end
-      
-      error do
-        file = File.join( settings.public_folder, '500.html' )
-        File.open file
-      end
-      
-      not_found do
-        file = File.join( settings.public_folder, '404.html' )
-        File.open file
+        erb :index
       end
     end
   end

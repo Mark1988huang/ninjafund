@@ -364,6 +364,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 
 /* ===== UI Dialog ===== */
 
+
 .ui-dialog { position: absolute; padding: 5px; width: auto; background: url(../images/alertOpacityOverlay.png) repeat; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
 .ui-dialog input[type=text] { width: 96%!important; margin: 12px 0 10px 0; }
 .ui-dialog form { text-align: center; }

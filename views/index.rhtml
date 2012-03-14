@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+		<title>NinjaFund: A Lanser Yaker Tech-Demo</title>
+		<link rel="stylesheet" href="/assets/common.css" type="text/css" />
+	</head>
+	<body>
+		<div class="loadingWrapper">
+			<div class="loadingLogo"><img src="/images/loginLogo.png" alt="" /></div>
+			<div class="loadingSpinner"><img src="/images/loaders/loader7.gif" alt = /></div>
+		</div>
+
+		<!-- Application Script Loading -->
+		<script type="text/javascript" src="/assets/common.js"></script>	
+		<script type="text/javascript" src="/assets/jst.js"></script>	
+		<script type="text/javascript" src="/assets/application.js"></script>
+		
+		<!-- Initialize the application -->	
+		<script type="text/javascript" charset="utf-8">
+			$().ready(function() {
+				Backbone.history.start({ pushState: true });
+			});
+		</script>
+	</body>
+</html>

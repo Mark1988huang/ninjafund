@@ -106,7 +106,7 @@ describe "The basic application" do
       post '/logon', :username => 'invalid'
       last_response.should be_ok 
       
-      last_response.body.should == erb(:logon, :error_message => 'The supplied username or password was invalid.')
+      last_response.body.should == erb(:logon, :locals => { :error_message => 'The supplied username or password was invalid.'})
     end
     
     it "shold return the view with an error if the specified password is invalid" do
@@ -116,7 +116,7 @@ describe "The basic application" do
       post '/logon', :username => 'test@test.com', :password => 'invalid'
       
       last_response.should be_ok 
-      last_response.body.should == erb(:logon, :error_message => 'The supplied username or password was invalid.')
+      last_response.body.should == erb(:logon, :locals => { :error_message => 'The supplied username or password was invalid.'})
     end
 
     it "should redirect the user to the root url if the login parameters are valid and there is no redirect url" do
@@ -132,8 +132,10 @@ describe "The basic application" do
     it "should redirect the user to the proper url if the login paramerts are valid and there is a redirect url" do
       u = NinjaFund::Model::User.new; u.id, u.email, u.password = 1, 'test@test.com', 'password'
       NinjaFund::Model::User.expects(:first).with(:email => 'test@test.com').returns(u)
-      
-      post '/logon', { :username => 'test@test.com', :password => 'password' }, 'rack.session' => { :return_to => 'test?id=123' }
+    
+      post '/logon', 
+        { :username => 'test@test.com', :password => 'password' }, 
+        { 'rack.session' => { :return_to => 'test?id=123' } }
       
       last_response.should be_redirect; follow_redirect!
       last_request.url.should == "http://example.org/test?id=123"

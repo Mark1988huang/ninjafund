@@ -22,7 +22,7 @@ table.display thead th div.DataTables_sort_wrapper span { position: absolute; to
 
 .dataTables_wrapper { position: relative; _height: 302px; clear: both; }
 .dataTables_processing { position: absolute; top: 0px; left: 50%; width: 250px; margin-left: -125px; border: 1px solid #ddd; text-align: center; color: #999; font-size: 11px; padding: 2px 0; }
-.dataTables_length { float: left; color: #878787; margin: 6px 5px 0 5px; }
+.dataTables_length { float: left; color: #878787; margin: 7px 5px 0 5px; }
 .itemsPerPage { display: block; float: left; margin-right: 10px; }
 .dataTables_length label { padding-top: 10px; font-size: 11px; }
 .dataTables_length select { font-size: 11px; margin: 0 5px; }

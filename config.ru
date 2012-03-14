@@ -12,16 +12,6 @@ application = Rack::Builder.app do
   # configure any environment dependent settings
   case ENV['RACK_ENV']
     when 'development'
-      # hack the static variable to work around a Jammit limitation
-      ::RAILS_ENV = 'development' 
-      
-      # configure the Jammit settings and modules
-      use Jammit::Middleware
-      Jammit.load_configuration './config/assets.yml'  
-      
-      # force Jammit to reload on every request
-      Jammit.reload!
-
       # configure the Barista settings and modules
       use Barista::Filter
       Barista.root = './app'
@@ -35,9 +25,14 @@ application = Rack::Builder.app do
 	end
 
   # enable sessions for the application
-  use Rack::Session::Cookie,
+  use Rack::Session::Cookie, 
     :key => 'rack.session',
+    :path => '/',
     :secret => '732c1db7478b81d72465c55cc6940f46'
+ 
+  # setup the serialization of identity parameters in and out of the session
+  Warden::Manager.serialize_into_session { |user| user.id }
+  Warden::Manager.serialize_from_session { |id| NinjaFund::Model::User.get(id) }
   
   # configure warden's settings
   use Warden::Manager do |config|
@@ -47,13 +42,11 @@ application = Rack::Builder.app do
   # set the strategies for use by Warden
   Warden::Strategies.add :password, NinjaFund::Security::PasswordStrategy
   
-  # setup the serialization of identity parameters in and out of the session
-  Warden::Manager.serialize_into_session { |user| user.id }
-  Warden::Manager.serialize_from_session { |id| NinjaFund::Model::User.get(id) }
-  
 	# load the Sinatra application modules using the cascaded configuration
   run Rack::Cascade.new [ 
-    NinjaFund::Routes::Application
+    NinjaFund::Routes::Application,
+    NinjaFund::Routes::Current,
+    NinjaFund::Routes::Errors
   ]
 end
 

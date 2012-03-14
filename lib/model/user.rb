@@ -20,6 +20,11 @@ module NinjaFund
       property :password,
         BCryptHash,
         :required => true
+        
+      property :name,
+        String,
+        :length => 128,
+        :required => true
     end
   end
 end
