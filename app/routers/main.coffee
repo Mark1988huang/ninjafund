@@ -1,8 +1,18 @@
 class window.NF.Routers.Main extends Backbone.Router
 	routes:
 		"": "_home"
-		"logout" : "_logout"		
+		"logout" : "_logout"	
 		
+	events:
+	  'route' : '_on_route'
+	
+	initialize: ->
+	  this.on 'route', @_on_route
+	  return @	
+		
+	#
+	# Route Handlers
+	#	
 	_home: () =>
 		# Initialize the viewport for the application
 		unless window.NF.ViewPort
@@ -19,6 +29,13 @@ class window.NF.Routers.Main extends Backbone.Router
 		# TODO: Check for any active items in child view items and act accordingly
 		window.location = '/logout'
 		return @	
+		
+	#
+	# Event Handlers
+	# 	
+  _on_route: =>
+    alert 'route!'
+    return @
 
 # Initialize the router and add it to the application
-(window.NF.Application ||= new Array).push new window.NF.Routers.Main
+(window.NF.Application ||= {})['main'] = new window.NF.Routers.Main

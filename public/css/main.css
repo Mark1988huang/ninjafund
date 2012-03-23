@@ -195,7 +195,8 @@ input[type=submit], input[type=reset], input[type=button], button, .button { fon
 /* ===== Header ===== */
 
 #header { height: 106px; clear: both; }
-.logo { float: left; margin-top: 30px; }
+.logo { float: left; margin-top: 30px; padding-top: 7px; }
+.logo img { display: block; width: 210px; }
 
 .middleNav { float: right; margin-right: 1px; }
 .middleNav ul { margin-top: 25px; }
@@ -229,17 +230,11 @@ input[type=submit], input[type=reset], input[type=button], button, .button { fon
 
 .leftNav ul li.dash a span { background-image: url(../images/icons/dark/download.png); }
 .leftNav ul li.graphs a span { background-image: url(../images/icons/dark/graph.png); }
-.leftNav ul li.forms a span { background-image: url(../images/icons/dark/pencil.png); }
-.leftNav ul li.gallery a span { background-image: url(../images/icons/dark/preview.png); }
-.leftNav ul li.typo span { background-image: url(../images/icons/dark/create.png); }
-.leftNav ul li.tables a span { background-image: url(../images/icons/dark/frames.png); }
-.leftNav ul li.cal a span { background-image: url(../images/icons/dark/dayCalendar.png); }
-.leftNav ul li.errors a span { background-image: url(../images/icons/dark/alert.png); }
-.leftNav ul li.files a span { background-image: url(../images/icons/dark/files.png); }
-.leftNav ul li.login a span { background-image: url(../images/icons/dark/user.png); }
-.leftNav ul li.pic a span { background-image: url(../images/icons/dark/blocks.png); }
-.leftNav ul li.widgets a span { background-image: url(../images/icons/dark/full.png); }
-.leftNav ul li.contacts a span { background-image: url(../images/icons/dark/users.png); }
+.leftNav ul li.rules a span { background-image: url(../images/icons/dark/strategy2.png); }
+.leftNav ul li.portfolio a span { background-image: url(../images/icons/dark/folder.png); }
+.leftNav ul li.sim a span { background-image: url(../images/icons/dark/stopWatch.png); }
+.leftNav ul li.users a span { background-image: url(../images/icons/dark/users.png); }
+.leftNav ul li.conn span { background-image: url(../images/icons/dark/wifi2.png); }
 
 .leftNav ul li a span { background-position: 10px; background-repeat: no-repeat; }
 
