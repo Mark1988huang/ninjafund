@@ -14,15 +14,7 @@ class window.NF.Routers.Main extends Backbone.Router
 	# Route Handlers
 	#	
 	_home: () =>
-		# Initialize the viewport for the application
-		unless window.NF.ViewPort
-		  #TODO: Handle the initialization of home view when the viewport is defined.
-			m = new window.NF.Models.Main.Home; m.fetch({
-			  success: (model) ->
-          window.NF.ViewPort = new window.NF.Views.Main.Home { model : model }
-          $('body').hide().html(window.NF.ViewPort.render().el).fadeIn('slow')			    
-			})
-	
+		# TODO: Initialize the dashboard for the application
 	  return @
 		
 	_logout: () =>

@@ -20,7 +20,37 @@
 		<!-- Initialize the application -->	
 		<script type="text/javascript" charset="utf-8">
 			$().ready(function() {
-				Backbone.history.start({ pushState: true });
+				// Initialize the master view for the application and the default children.
+				window.NF.Master = new window.NF.Views.Master({
+					views: {
+						'top_nav': new window.NF.Views.Shared.TopNav({
+							model: new window.NF.Models.Shared.Profile()
+						}),
+						'header': new window.NF.Views.Shared.Header(),
+						'footer': new window.NF.Views.Shared.Footer()
+					}
+				});
+				
+				// Check if the backbone history has been initialized.
+				if (Backbone.history) {
+					// Subscribe to handle the route event for the backbone history object.
+					Backbone.history.on('route', function () {
+						// Check if the view has been rendered.
+						if ($('body > .loadingWrapper').length) {
+							$('body').replaceWith(window.NF.Master.render().el);							
+						}
+					});
+					
+					// Retrieve the profile details for the current user.
+					window.NF.Master.views['top_nav'].model.fetch({
+						success: function () {
+							Backbone.history.start({ pushState: true });
+						},
+						error: function () {
+							// TODO: Insert error handling for the client-server connection.
+						}
+					});	
+				}
 			});
 		</script>
 	</body>

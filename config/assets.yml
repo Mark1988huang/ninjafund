@@ -51,7 +51,8 @@ javascripts:
         - public/js/jquery.prettyPhoto.js
         - public/js/custom.js
         - public/js/underscore.js
-        - public/js/backbone.js    
+        - public/js/backbone.js 
+        - public/js/ribs.js   
     jst:
         - app/templates/**/*.jst
     application:

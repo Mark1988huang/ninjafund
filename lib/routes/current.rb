@@ -5,7 +5,7 @@ module NinjaFund
         redirect '/logon' if warden.unauthenticated?
       end
       
-      get '/current/user' do
+      get '/current/profile' do
         u = warden.user; content_type :json
         { id: u.id, email: u.email, name: u.name }.to_json
       end
