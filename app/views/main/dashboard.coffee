@@ -17,10 +17,4 @@ class window.NF.Views.Main.Dashboard extends Backbone.View
     
   render: =>
     $(@el).html template()
-    return @
-  
-  #
-  # Public Methods
-  # 
-  
-    
+    return @    

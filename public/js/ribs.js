@@ -1,5 +1,5 @@
 //     Ribs.js 0.0.1
-//     (c) 2010-2012 Jordan Yaker, Inventive Minds, Llc.
+//     (c) 2012-2014 Jordan Yaker, Inventive Minds, Llc.
 //     Ribs may be freely distributed under the MIT license.
 //     For all details and documentation:
 //     http://inventive-minds.com
@@ -133,7 +133,7 @@
     
     // Handles the actual removal of the view and all child view elements.
     _invokeRemoval: function () {
-      View.__super__.remove.apply(this);
+      Ribs.View.__super__.remove.apply(this);
       
       views = _.reject(this.views, function (view) {
         return view == null;

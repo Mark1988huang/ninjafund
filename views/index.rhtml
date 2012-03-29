@@ -30,6 +30,7 @@
 						'footer': new window.NF.Views.Shared.Footer()
 					}
 				});
+				window.NF.Master.render();
 				
 				// Check if the backbone history has been initialized.
 				if (Backbone.history) {
@@ -37,7 +38,7 @@
 					Backbone.history.on('route', function () {
 						// Check if the view has been rendered.
 						if ($('body > .loadingWrapper').length) {
-							$('body').replaceWith(window.NF.Master.render().el);							
+							$('body').replaceWith(window.NF.Master.el);							
 						}
 					});
 					
