@@ -15,13 +15,7 @@ module NinjaFund
         erb :logon, :locals => { :error_message => warden.message }
       end
       
-      get '/logout' do
-        warden.logout if warden.authenticated?
-        
-        redirect '/'
-      end
-      
-      get %r{^(?=(/?)(.*))((?!current|assets|api).)*$} do
+      get %r{^(?=(/?)(.*))((?!session|assets|api).)*$} do
         if warden.unauthenticated?
           session[:return_to] = request.path if request.path != '/'
           redirect '/logon'

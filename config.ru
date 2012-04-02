@@ -45,7 +45,7 @@ application = Rack::Builder.app do
 	# load the Sinatra application modules using the cascaded configuration
   run Rack::Cascade.new [ 
     NinjaFund::Routes::Application,
-    NinjaFund::Routes::Current,
+    NinjaFund::Routes::Session,
     NinjaFund::Routes::Errors
   ]
 end
