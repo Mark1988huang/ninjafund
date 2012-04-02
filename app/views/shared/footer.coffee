@@ -1,6 +1,6 @@
 window.NF.Views.Shared ||={}
 
-class window.NF.Views.Shared.Footer extends Backbone.View
+class window.NF.Views.Shared.Footer extends Ribs.View
   template: JST['shared/footer']
   
   id: 'footer'

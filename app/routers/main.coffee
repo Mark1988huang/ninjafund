@@ -1,33 +1,29 @@
 class window.NF.Routers.Main extends Backbone.Router
 	routes:
-		"": "_home"
+		"": "_dashboard"
 		"logout" : "_logout"	
-		
-	events:
-	  'route' : '_on_route'
-	
-	initialize: ->
-	  this.on 'route', @_on_route
-	  return @	
 		
 	#
 	# Route Handlers
 	#	
-	_home: () =>
-		# TODO: Initialize the dashboard for the application
+	_dashboard: =>
+	  # TODO: Check if there is a current content view.
+	  
+	  # Initialize and render the new main content section.
+	  view = window.NF.Master.views['content'] = new window.NF.Views.Dashboard.Main
+	  window.NF.Master.$('#content').replaceWith view.render().el
+	  
+	  # Ensure that the TO-TOP indicator is displayed if required.
+	  $().UItoTop({ easingType: 'easeOutQuart' });
+	  
+	  # Set the indicators for the dashboard being active.
+	  window.NF.Master.$('li.dash a').addClass 'active'
 	  return @
 		
-	_logout: () =>
+	_logout: =>
 		# TODO: Check for any active items in child view items and act accordingly
 		window.location = '/logout'
-		return @	
-		
-	#
-	# Event Handlers
-	# 	
-  _on_route: =>
-    alert 'route!'
-    return @
+		return @
 
 # Initialize the router and add it to the application
 (window.NF.Application ||= {})['main'] = new window.NF.Routers.Main

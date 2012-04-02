@@ -59,8 +59,11 @@
   // hierarchical control/eventing mechanism.
   Ribs.View = Backbone.View.extend({
     constructor: function(options) {
-      this.parent = options.parent;
-      this.views = options.views || {};
+      if (options) {
+        this.parent = options.parent;
+        this.views = (options.views || {});
+      }
+      
       Ribs.View.__super__.constructor.apply(this, arguments);
     },
     
@@ -133,7 +136,7 @@
     
     // Handles the actual removal of the view and all child view elements.
     _invokeRemoval: function () {
-      View.__super__.remove.apply(this);
+      Ribs.View.__super__.remove.apply(this);
       
       views = _.reject(this.views, function (view) {
         return view == null;

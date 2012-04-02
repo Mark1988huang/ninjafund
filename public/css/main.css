@@ -65,7 +65,7 @@ p { padding: 12px 0 0 0; }
 
 /* ==========  Loading page  ========== */
 
-.loadingWrapper { position: absolute; top: 50%; left: 50%; }
+.loadingWrapper { position: absolute; top: 50%; left: 50%; margin-top: -35px; }
 .loadingLogo { width: 276px; height: 44px; display: block; left: 50%; margin-left: -138px; } 
 .loadingLogo img { width: 276px; height: 44px; }
 .loadingSpinner { width: 320px; height: 27px; display: block; left: 50%; margin-left: -160px; } 
@@ -205,10 +205,10 @@ input[type=submit], input[type=reset], input[type=button], button, .button { fon
 .middleNav ul li a { display: block; border: 1px solid #d5d5d5; background: url(../images/middlebg.png) repeat-x 0 0; -moz-border-radius: 2px; -webkit-border-radius: 2px; -khtml-border-radius: 2px; border-radius: 2px; color: #595858; font-size: 12px; position: relative; -moz-box-shadow: 0 2px 1px #fff; -webkit-box-shadow: 0 2px 1px #fff; box-shadow: 0 2px 1px #fff; }
 .middleNav ul li a span { display: block; padding: 34px 10px 0 10px; }
 
-.middleNav ul li.iMes a span { background: url(../images/icons/middlenav/dialog.png) no-repeat 50% 10px; }
-.middleNav ul li.iStat a span { background: url(../images/icons/middlenav/graph.png) no-repeat 50% 10px; }
-.middleNav ul li.iUser a span { background: url(../images/icons/middlenav/users.png) no-repeat 50% 10px; }
-.middleNav ul li.iOrders a span { background: url(../images/icons/middlenav/money.png) no-repeat 50% 10px; }
+.middleNav ul li.iRates a span { background: url(../images/icons/middlenav/graph.png) no-repeat 50% 10px; }
+.middleNav ul li.iOrders a span { background: url(../images/icons/middlenav/create.png) no-repeat 50% 10px; }
+.middleNav ul li.iReports a span { background: url(../images/icons/middlenav/clipboard.png) no-repeat 50% 10px; }
+.middleNav ul li.iFunds a span { background: url(../images/icons/middlenav/money.png) no-repeat 50% 10px; }
 
 .middleNav ul li a:hover { background: #f6f6f6; }
 .middleNav ul li a:active { background: #f1f1f1; }
@@ -229,7 +229,7 @@ input[type=submit], input[type=reset], input[type=button], button, .button { fon
 /* Left navigation icons */
 
 .leftNav ul li.dash a span { background-image: url(../images/icons/dark/download.png); }
-.leftNav ul li.graphs a span { background-image: url(../images/icons/dark/graph.png); }
+.leftNav ul li.graphs a span { background-image: url(../images/icons/dark/stats.png); }
 .leftNav ul li.rules a span { background-image: url(../images/icons/dark/strategy2.png); }
 .leftNav ul li.portfolio a span { background-image: url(../images/icons/dark/folder.png); }
 .leftNav ul li.sim a span { background-image: url(../images/icons/dark/stopWatch.png); }
@@ -297,6 +297,8 @@ width: 21.2%; }
 .widget .body { padding: 12px 14px; }
 .widget .normal h5, .accordion-close h5 { background: url(../images/aNormal.png) no-repeat 15px 15px; padding: 9px 12px 9px 32px!important }
 .widget .inactive h5, .accordion-open h5 { background: url(../images/aInactive.png) no-repeat 12px 17px; padding: 9px 12px 9px 32px!important; }
+
+.widget .btn14 { display: block; float: right; height: 14px; margin: 5px; }
 
 .widget .num { float: right; display: inline-block; text-align: center; margin: 9px 12px 0 0; font-size: 11px; }
 .widget .num span { margin-right: 10px; }
@@ -585,6 +587,9 @@ div.radio span.checked { background-position: center bottom; }
 /* ===== Dynamic table headers ===== */
 
 .table { margin-top: 40px; border: 1px solid #d5d5d5; border-top: none; }
+
+.table .btn14 { display: block; float: right; height: 14px; margin: 5px; }
+
 .headTitle { background: #efefef url(../images/leftNavBg.png) repeat-x; height: 37px; border-bottom: 1px solid #d5d5d5; }
 
 
