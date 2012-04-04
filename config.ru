@@ -12,11 +12,6 @@ application = Rack::Builder.app do
   # configure any environment dependent settings
   case ENV['RACK_ENV']
     when 'development'
-      # configure the Barista settings and modules
-      use Barista::Filter
-      Barista.root = './app'
-      Barista.output_root = './public/backbone'
-      
       # setup the DataMapper configuration
       DataMapper.setup(:default, ENV['DATABASE_URL'] || 'mysql://localhost/ninjafund.oltp')
 	  when 'production'
@@ -45,7 +40,7 @@ application = Rack::Builder.app do
 	# load the Sinatra application modules using the cascaded configuration
   run Rack::Cascade.new [ 
     NinjaFund::Routes::Application,
-    NinjaFund::Routes::Current,
+    NinjaFund::Routes::Session,
     NinjaFund::Routes::Errors
   ]
 end

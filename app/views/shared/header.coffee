@@ -1,6 +1,6 @@
 window.NF.Views.Shared ||={}
 
-class window.NF.Views.Shared.Header extends Backbone.View
+class window.NF.Views.Shared.Header extends Ribs.View
   template: JST['shared/header']
   
   id: 'header'

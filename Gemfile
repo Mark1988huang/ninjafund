@@ -21,15 +21,19 @@ gem 'json'
 # setup the development group dependencies
 group :development do
   gem 'shotgun', '0.9'
-  gem 'barista', '1.2.1'
+  gem 'guard-coffeescript'
   gem 'therubyracer', '0.9.9'
+end
+
+# setup the development/test group dependencies
+group :development, :test do
   gem 'jammit'
   gem 'jammit-sinatra',
     :git => 'git://github.com/joesteele/jammit-sinatra.git', 
     :require => 'jammit/sinatra'
 end
 
-# setup the test/development group dependencies
+# setup the test group dependencies
 group :test do
   gem 'rack-test', 
     '0.6.1',

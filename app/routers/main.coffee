@@ -1,23 +1,23 @@
 class window.NF.Routers.Main extends Backbone.Router
 	routes:
-		"": "_dashboard"
-		"logout" : "_logout"	
-
+		"": "_dashboard"	
+		
 	#
 	# Route Handlers
 	#	
 	_dashboard: =>
-	  # Activate the button for the view's link.
-	  window.NF.Master.$('#menu .dash a').addClass 'active'
-		
-		# Initialize the dashboard for the application.
-		# window.NF.Master.views['content'] = new window.NF.Views.Main.Desktop()
+	  # check if the current content needs view can be removed.
+	  return false if window.NF.Master.views['content'] && !window.NF.Master.views['content'].remove()
+	  
+	  # Initialize and render the new main content section.
+	  view = window.NF.Master.views['content'] = new window.NF.Views.Dashboard.Main { 
+	    parent: window.NF.Master 
+	  }
+	  window.NF.Master.$('#content').replaceWith view.render().el
+	  
+	  # Set the indicators for the dashboard being active.
+	  window.NF.Master.$('li.dash a, li a.active').toggleClass 'active'
 	  return @
-		
-	_logout: =>
-		# TODO: Check for any active items in child view items and act accordingly
-		window.location = '/logout'
-		return @	
 
 # Initialize the router and add it to the application
 (window.NF.Application ||= {})['main'] = new window.NF.Routers.Main
