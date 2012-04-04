@@ -51,7 +51,18 @@
 						error: function () {
 							// TODO: Insert error handling for the client-server connection.
 						}
-					});	
+					});
+					
+					// Subscribe to the handler for all of the route management to handle linking.
+					Backbone.history.on('route', function () {
+						$('a').live('click', function (e) {
+							e.preventDefault();
+							
+							var fragment = $(e.currentTarget).attr('href');
+							if (fragment) Backbone.history.navigate(fragment, { trigger: true });
+							return false;
+						});
+					});
 				}
 			});
 		</script>

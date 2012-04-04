@@ -73,8 +73,12 @@
     // the same time.  This means that the method should be invoked by all methods 
     // overriding it.
     render: function () {
+      views = _.reject(this.views, function (view) {
+        return view == null;
+      });
+
       _.each(views, function (view) {
-        view.render.apply(view, arguments);
+        view.render(arguments);
       });
       
       return this;
@@ -86,16 +90,16 @@
     remove: function() {
       // Add the handling of checks for removal approval.
       var event = { cancel: false };
-      this._beforeRemoval.apply(this, event);
+      this._beforeRemoval(event);
       
       // Check if the removal of the view has been canceled.
-      if (!event.cancel) {
-        // Invoke the actual removal of the view.
-        this._invokeRemoval.apply(this);
-        
-        // Handle the post-removal actions and the clean-up for the view.
-        this._afterRemoval.apply(this);
-      }
+      if (event.cancel) return false;
+      
+      // Invoke the actual removal of the view.
+      this._invokeRemoval();
+      
+      // Handle the post-removal actions and the clean-up for the view.
+      this._afterRemoval();
       
       return this;
     },
@@ -110,7 +114,7 @@
       });
       
       _.each(views, function (view) {
-        view._afterRemoval.apply(view);
+        view._afterRemoval();
       });
       
       Ribs.View.__super__.off.apply(this);
@@ -127,7 +131,7 @@
         event.cancel = _.any(this.views, function (view) {
           var e = _.clone(event); 
           
-          view._beforeRemoval.apply(view, e);
+          view._beforeRemoval(e);
           
           return e.cancel;
         });
@@ -136,14 +140,12 @@
     
     // Handles the actual removal of the view and all child view elements.
     _invokeRemoval: function () {
-      Ribs.View.__super__.remove.apply(this);
-      
       views = _.reject(this.views, function (view) {
         return view == null;
       });
       
       _.each(views, function (view) {
-        view._invokeRemoval.apply(view);
+        view._invokeRemoval();
       });
     }
   });

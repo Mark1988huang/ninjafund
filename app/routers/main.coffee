@@ -6,17 +6,17 @@ class window.NF.Routers.Main extends Backbone.Router
 	# Route Handlers
 	#	
 	_dashboard: =>
-	  # TODO: Check if there is a current content view.
+	  # check if the current content needs view can be removed.
+	  return false if window.NF.Master.views['content'] && !window.NF.Master.views['content'].remove()
 	  
 	  # Initialize and render the new main content section.
-	  view = window.NF.Master.views['content'] = new window.NF.Views.Dashboard.Main
+	  view = window.NF.Master.views['content'] = new window.NF.Views.Dashboard.Main { 
+	    parent: window.NF.Master 
+	  }
 	  window.NF.Master.$('#content').replaceWith view.render().el
 	  
-	  # Ensure that the TO-TOP indicator is displayed if required.
-	  $().UItoTop({ easingType: 'easeOutQuart' });
-	  
 	  # Set the indicators for the dashboard being active.
-	  window.NF.Master.$('li.dash a').addClass 'active'
+	  window.NF.Master.$('li.dash a, li a.active').toggleClass 'active'
 	  return @
 
 # Initialize the router and add it to the application

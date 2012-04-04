@@ -8,3 +8,8 @@ guard :rspec do
   watch( %r{^spec/(.+)_spec\.rb} )  
   watch( %r{^lib/(.+)\.rb}) { |m| "spec/#{m[1]}_spec.rb" }
 end
+
+# watch the coffeescript files for any changes
+guard :coffeescript, :output => 'public/backbone' do
+	watch( %r{^app/(.+)\.coffee$})
+end
