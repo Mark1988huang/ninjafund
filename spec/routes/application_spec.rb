@@ -63,9 +63,7 @@ describe "The basic application" do
       
       get '/'
       last_response.should be_ok
-      
-      path = File.expand_path '../../public/index.html', File.dirname(__FILE__)
-      last_response.body.should == File.open( path ).read
+      last_response.body.should == erb(:index)
     end
   end 
     
@@ -83,9 +81,7 @@ describe "The basic application" do
 
       get '/test'
       last_response.should be_ok
-
-      path = File.expand_path '../../public/index.html', File.dirname(__FILE__)
-      last_response.body.should == File.open( path ).read
+      last_response.body.should == erb(:index)
     end
   end
   

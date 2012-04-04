@@ -38,7 +38,8 @@
 					Backbone.history.on('route', function () {
 						// Check if the view has been rendered.
 						if ($('body > .loadingWrapper').length) {
-							$('body').replaceWith(window.NF.Master.el);							
+							$('body').replaceWith(window.NF.Master.el);	
+							$().UItoTop({ easingType: 'easeOutQuart' });						
 						}
 					});
 					

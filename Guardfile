@@ -11,5 +11,5 @@ end
 
 # watch the coffeescript files for any changes
 guard :coffeescript, :output => 'public/backbone' do
-	watch( %r{^app/(.+)\.coffee$})
+	watch( %r{^app/(.+)\.coffee$} )
 end

@@ -13,8 +13,7 @@ class window.NF.Views.Dashboard.Main extends Ribs.View
   render: =>
     $(@el).html @template()
     
-    # render the jQuery widgets for the dashboard view.
-    $().UItoTop { easingType: 'easeOutQuart' }
+    # TODO: render the jQuery widgets for the dashboard view.
     
     # invoke the base rendering of the view
     super arguments  
