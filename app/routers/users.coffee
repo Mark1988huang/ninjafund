@@ -11,7 +11,8 @@ class window.NF.Routers.Users extends Backbone.Router
     
     # TODO: Initialize the new users content for the view. 
     view = window.NF.Master.views['content'] = new window.NF.Views.Users.List { 
-      parent: window.NF.Master 
+      parent: window.NF.Master
+      collection: new window.NF.Collections.Users.Details 
     }
     window.NF.Master.$('#content').replaceWith view.render().el
     

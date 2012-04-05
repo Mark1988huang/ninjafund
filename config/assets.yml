@@ -21,6 +21,7 @@ javascripts:
         - public/js/flot/excanvas.min.js
         - public/js/flot/jquery.flot.resize.js
         - public/js/dataTables/jquery.dataTables.js
+        - public/js/dataTables/jquery.dataTables.processing.js
         - public/js/dataTables/colResizable.min.js
         - public/js/forms/forms.js
         - public/js/forms/autogrowtextarea.js
@@ -49,7 +50,6 @@ javascripts:
         - public/js/jquery.sourcerer.js
         - public/js/jquery.timeentry.min.js
         - public/js/jquery.prettyPhoto.js
-        - public/js/custom.js
         - public/js/underscore.js
         - public/js/backbone.js 
         - public/js/ribs.js   
@@ -57,4 +57,7 @@ javascripts:
         - app/templates/**/*.jst
     application:
         - public/backbone/ninjafund.js
-        - public/backbone/**/*.js
+        - public/backbone/models/**/*.js        
+        - public/backbone/collections/**/*.js
+        - public/backbone/views/**/*.js
+        - public/backbone/routers/**/*.js

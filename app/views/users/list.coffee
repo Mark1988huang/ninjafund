@@ -9,4 +9,14 @@ class window.NF.Views.Users.List extends Ribs.View
     
   render: =>
     $(@el).html @template()
+    
+    # Render the jQuery widgets for the view.
+    table = @$('table').dataTable({
+      'bJQueryUI': true
+      'bFilter' : false
+      'bProcessing': false
+      'sPaginationType' : 'full_numbers'
+      'sDom' : '<""f>t<"F"lp>'
+    }).fnProcessingIndicator()
+    
     super (arguments)
