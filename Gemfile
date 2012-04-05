@@ -45,8 +45,8 @@ group :test do
   gem 'guard', '1.0.0'
   gem 'guard-bundler', '0.1.3'
   gem 'guard-rspec', '0.6.0'
-  gem 'growl', '1.0.3'
-  # gem 'libnotify', '0.7.2'
+  #gem 'growl', '1.0.3'
+  gem 'libnotify', '0.7.2'
   gem 'mocha', 
     '0.10.4', 
     :require => false
