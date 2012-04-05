@@ -126,15 +126,15 @@ describe "The basic application" do
     end
     
     it "should redirect the user to the proper url if the login paramerts are valid and there is a redirect url" do
+      get '/test'
+    
       u = NinjaFund::Model::User.new; u.id, u.email, u.password = 1, 'test@test.com', 'password'
       NinjaFund::Model::User.expects(:first).with(:email => 'test@test.com').returns(u)
     
-      post '/logon', 
-        { :username => 'test@test.com', :password => 'password' }, 
-        { 'rack.session' => { :return_to => 'test?id=123' } }
+      post '/logon', :username => 'test@test.com', :password => 'password'
       
       last_response.should be_redirect; follow_redirect!
-      last_request.url.should == "http://example.org/test?id=123"
+      last_request.url.should == "http://example.org/test"
     end
   end
 end
