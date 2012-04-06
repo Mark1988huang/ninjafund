@@ -10,6 +10,6 @@ guard :rspec do
 end
 
 # watch the coffeescript files for any changes
-guard :coffeescript, :output => 'public/backbone' do
+guard :coffeescript, :all_on_start => true, :output => 'public/backbone' do
 	watch( %r{^app/(.+)\.coffee$} )
 end

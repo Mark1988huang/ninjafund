@@ -17,18 +17,141 @@ describe "the users api (v1) interface" do
 
   context "when retrieving a list of users" do
     it "should return all of the users in the database" do
-      u1 = NinjaFund::Model::User.new; u1.id, u1.email, u1.name = 1, 'test1@test.com', 'test 1'
-      u2 = NinjaFund::Model::User.new; u2.id, u2.email, u2.name = 2, 'test2@test.com', 'test 2'
-      u3 = NinjaFund::Model::User.new; u3.id, u3.email, u3.name = 3, 'test3@test.com', 'test 3'
-      NinjaFund::Model::User.expects(:all).returns [ u1, u2, u3 ]
+      u1 = NinjaFund::Model::User.create :email => 'test1@test.com', :name => 'test 1', :password => 'password'
+      u2 = NinjaFund::Model::User.create :email => 'test2@test.com', :name => 'test 2', :password => 'password'
+      u3 = NinjaFund::Model::User.create :email => 'test3@test.com', :name => 'test 3', :password => 'password'
       
-      @expected = [ 
+      @expected = { :users => [ 
         { :id => u1.id, :name => u1.name, :email => u1.email }, 
         { :id => u2.id, :name => u2.name, :email => u2.email }, 
         { :id => u3.id, :name => u3.name, :email => u3.email }
-      ].to_json
+      ]}.to_json
       
       get 'api/v1/users'
+      last_response.should be_ok
+      last_response.body.should == @expected
+    end
+  end
+  
+  context "when creating a new user" do
+    it "should return an error when no e-mail address has been supplied" do
+      post '/api/v1/users', { 
+        :name => 'test user',
+        :password => 'password'
+      }
+      
+      @expected = { 
+        :status => 400, 
+        :message => 'Email', 
+        :code => 10001  
+      }.to_json
+      
+      last_response.should_not be_ok
+      last_response.status.should == 400
+      last_response.body.should == @expected
+    end
+    
+    it "should return an error when the specified e-mail address is in user" do
+      NinjaFund::Model::User.create :email => 'test@test.com', :name => 'test', :password => 'password'
+      
+      post '/api/v1/users', { 
+        :name => 'test user',
+        :email => 'test@test.com',
+        :password => 'password'
+      }
+      
+      @expected = { 
+        :status => 400, 
+        :message => 'Email', 
+        :code => 10002  
+      }.to_json
+      
+      last_response.should_not be_ok
+      last_response.status.should == 400
+      last_response.body.should == @expected
+    end
+    
+    it "should return an error when the specified e-mail address is invalid" do
+      post '/api/v1/users', { 
+        :name => 'test user',
+        :email => 'test',
+        :password => 'password'
+      }
+      
+      @expected = { 
+        :status => 400, 
+        :message => 'Email', 
+        :code => 10003  
+      }.to_json
+      
+      last_response.should_not be_ok
+      last_response.status.should == 400
+      last_response.body.should == @expected
+    end
+    
+    it "should return an error when the user name is not supplied" do
+      post '/api/v1/users', { 
+        :email => 'test@test.com',
+        :password => 'password'
+      }
+      
+      @expected = { 
+        :status => 400, 
+        :message => 'Name', 
+        :code => 10004  
+      }.to_json
+      
+      last_response.should_not be_ok
+      last_response.status.should == 400
+      last_response.body.should == @expected
+    end
+    
+    it "should return an error when the user name is too long" do
+      post '/api/v1/users', { 
+        :email => 'test@test.com',
+        :name => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nibh lectus, vitae pellentesque orci. Proin sit amet lectus sed.',
+        :password => 'password'
+      }
+      
+      @expected = { 
+        :status => 400, 
+        :message => 'Name', 
+        :code => 10005  
+      }.to_json
+      
+      last_response.should_not be_ok
+      last_response.status.should == 400
+      last_response.body.should == @expected
+    end
+    
+    it "should return an error when the password is not supplied" do
+      post '/api/v1/users', { 
+        :email => 'test@test.com',
+        :name => 'Test'
+      }
+      
+      @expected = { 
+        :status => 400, 
+        :message => 'Password', 
+        :code => 10006  
+      }.to_json
+      
+      last_response.should_not be_ok
+      last_response.status.should == 400
+      last_response.body.should == @expected
+    end
+    
+    it "should return the details of the newly created user" do
+      post '/api/v1/users', { 
+        :email => 'test@test.com',
+        :name => 'Test',
+        :password => 'password'
+      }
+      
+      u = NinjaFund::Model::User.first; @expected = { 
+        :user => { :id => u.id, :name => u.name, :email => u.email }
+      }.to_json
+      
       last_response.should be_ok
       last_response.body.should == @expected
     end

@@ -30,7 +30,7 @@ html .fc, .fc table { font-size: 1em; }
 	
 	
 .fc-widget-header, .fc-widget-content { border: 1px solid #d5d5d5; }
-.fc-state-highlight { background: #f5f5f5 url(../images/calActiveBg.png) repeat-x 0 0; }	
+.fc-state-highlight { background: #f5f5f5 url(/images/calActiveBg.png) repeat-x 0 0; }	
 .fc-cell-overlay { background: #9cf; opacity: .2; filter: alpha(opacity=20); /* for IE */ }
 	
 
@@ -55,7 +55,7 @@ html .fc, .fc table { font-size: 1em; }
 .fc-state-down, .fc-state-down .fc-button-inner {}
 	
 .fc-state-active, .fc-state-active .fc-button-inner { color: #797979; background: #fafafa; }	
-.fc-first th { padding-top: 1px; background: url(../images/leftNavBg.png) repeat-x; }	
+.fc-first th { padding-top: 1px; background: url(/images/leftNavBg.png) repeat-x; }	
 .fc-state-disabled, .fc-state-disabled .fc-button-inner { color: #999; border-color: #ddd; }	
 .fc-state-disabled { cursor: default; }	
 .fc-state-disabled .fc-button-effect { display: none; }

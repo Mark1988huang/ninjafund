@@ -51,4 +51,5 @@ group :test do
     '0.10.4', 
     :require => false
   gem 'jasmine', '1.1.2'
+  gem 'dm-sqlite-adapter', '1.2.0'
 end  

@@ -23,8 +23,15 @@ RSpec.configure do |conf|
   conf.include Warden::Test::Helpers
 
   conf.mock_framework = :mocha
+  
+  DataMapper.setup :default, 'sqlite3::memory:'
+
+  conf.before(:each) do
+    Warden.test_mode!
+    DataMapper.auto_migrate!
+  end
+
+  conf.after(:each) do 
+    Warden.test_reset!
+  end
 end
-
-before{ Warden.test_mode! }
-
-after{ Warden.test_reset! }

@@ -1,0 +1,34 @@
+<form class="mainForm">
+  <div class="title">
+    <h5>Users</h5>
+  </div>
+  <div class="widget first">
+    <div class="head">
+      <h5 class="iAdminUser">Create User</h5>
+    </div>
+    <div class="rowElem noborder pt0 pb0">
+      <label>Name:</label>
+      <div class="formRight">
+        <input id="name" type="text" maxlength="128" class="validate[required]" name="name">
+      </div>
+      <div class="fix"></div>
+    </div>
+    <div class="rowElem noborder pt0 pb0">
+      <label>e-Mail:</label>
+      <div class="formRight">
+        <input id="email" type="text" maxlength="128" class="validate[required,custom[email]]" name="email">
+      </div>
+      <div class="fix"></div>
+    </div>
+    <div class="rowElem noborder pt0 pb0">
+      <label>Password:</label>
+      <div class="formRight">
+        <input id="password" type="password" class="validate[required]" name="password">
+      </div>
+      <div class="fix"></div>
+    </div>
+    <input id="cancel" type="button" value="Cancel" class="greyishBtn submitForm" />
+    <input id="submit" type="submit" value="Save" class="greyishBtn floatright" />
+    <div class="fix"></div>
+  </div>  
+</form>
