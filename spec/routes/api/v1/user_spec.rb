@@ -22,7 +22,11 @@ describe "the users api (v1) interface" do
       u3 = NinjaFund::Model::User.new; u3.id, u3.email, u3.name = 3, 'test3@test.com', 'test 3'
       NinjaFund::Model::User.expects(:all).returns [ u1, u2, u3 ]
       
-      @expected = [ u1, u2, u3 ].to_json
+      @expected = [ 
+        { :id => u1.id, :name => u1.name, :email => u1.email }, 
+        { :id => u2.id, :name => u2.name, :email => u2.email }, 
+        { :id => u3.id, :name => u3.name, :email => u3.email }
+      ].to_json
       
       get 'api/v1/users'
       last_response.should be_ok

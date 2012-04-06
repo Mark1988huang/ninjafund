@@ -21,7 +21,7 @@ javascripts:
         - public/js/flot/excanvas.min.js
         - public/js/flot/jquery.flot.resize.js
         - public/js/dataTables/jquery.dataTables.js
-        - public/js/dataTables/jquery.dataTables.processing.js
+        - public/js/dataTables/jquery.dataTables.extensions.js
         - public/js/dataTables/colResizable.min.js
         - public/js/forms/forms.js
         - public/js/forms/autogrowtextarea.js
@@ -51,6 +51,7 @@ javascripts:
         - public/js/jquery.timeentry.min.js
         - public/js/jquery.prettyPhoto.js
         - public/js/underscore.js
+        - public/js/underscore.string.js
         - public/js/backbone.js 
         - public/js/ribs.js   
     jst:

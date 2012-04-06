@@ -41,6 +41,7 @@ application = Rack::Builder.app do
   run Rack::Cascade.new [ 
     NinjaFund::Routes::Application,
     NinjaFund::Routes::Session,
+    NinjaFund::Routes::API::V1::Users,
     NinjaFund::Routes::Errors
   ]
 end
