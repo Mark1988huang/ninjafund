@@ -1292,16 +1292,14 @@
 
                 default:
                 case "topRight":
-                    if (overflow)
-                        // Is the form contained in an overflown container?
-                        promptleftPosition += fieldWidth - 30;
-                    else {
-                        promptleftPosition += fieldWidth - 30;
-                        promptTopPosition += -promptHeight -2;
+                    // Is the form contained in an overflown container?
+                    promptleftPosition += fieldWidth - 113;
+                    if (!overflow) {
+                        promptTopPosition += -promptHeight;
                     }
                     break;
                 case "topLeft":
-                    promptTopPosition += -promptHeight - 10;
+                    promptTopPosition += -promptHeight;
                     break;
                 case "centerRight":
                     promptleftPosition += fieldWidth + 13;
@@ -1310,7 +1308,7 @@
                     promptTopPosition = promptTopPosition + field.height() + 15;
                     break;
                 case "bottomRight":
-                    promptleftPosition += fieldWidth - 30;
+                    promptleftPosition += fieldWidth - 113;
                     promptTopPosition += field.height() + 5;
             }
 

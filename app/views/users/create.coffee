@@ -1,22 +1,24 @@
 window.NF.Views.Users ||= {}
 
 class window.NF.Views.Users.Create extends Ribs.View
-  id: 'content'
-  
   className: 'content'
     
   template: JST['users/create']
 
   events:
-    'click #cancel' : '_on_click_cancel'
-    'click #submit' : '_on_click_submit'
-    'change #name' : '_on_change_name'
-    'change #email' : '_on_change_email'
-    'change #password' : '_on_change_password'
+    'click #cancel' : '_on_cancel'
+    'keyup input': '_on_keyup'
+    'click #submit' : '_on_submit'
+    'submit form'   : '_on_submit'
+    'change input'  : '_on_change'
 
   initialize: ->
     @model.collection = @collection
     return @
+
+  remove: =>
+    $('.formError').remove()
+    super()
 
   render: =>
     $(@el).html @template()
@@ -28,29 +30,35 @@ class window.NF.Views.Users.Create extends Ribs.View
   #
   # Event Handlers
   #
-  _on_change_email: =>
-    @model.set 'email', @$('#email').val(), { silent: true }
+  _on_change: =>
+    @model.set {
+      'email' : @$('#email').val()
+      'name' : @$('#name').val()
+      'password' : @$('#password').val()
+    } , { 
+      silent: true 
+    }
     return @
   
-  _on_change_name: =>
-    @model.set 'name', @$('#name').val(), { silent: true }
-    return @
-
-  _on_change_password: =>
-    @model.set 'password', @$('#password').val(), { silent: true }
-    return @
-  
-  _on_click_cancel: =>
+  _on_cancel: =>
     window.history.back()
     return @
 
-  _on_click_submit: =>
+  _on_keyup: (e) =>
+    switch e.keyCode
+      when 27
+        @_on_cancel()
+      when 13
+        @_on_submit()
+    return @
+
+  _on_submit: =>
     @views['error'].remove() if @views['error']
     
     options = 
       wait: true
       success: (model, response) =>
-        # TODO: Close the form and return the user to the list.
+        Backbone.history.navigate '/users', { trigger: true }
         return @
       error: (model, xhr) =>
         # Convert the response to a JSON object.
@@ -63,7 +71,7 @@ class window.NF.Views.Users.Create extends Ribs.View
           when 10001
             error_message = 'We\'re sorry, but an e-mail address is required when creating a user.'
           when 10002
-            error_message = 'Oh no! It looks like the supplied e-mail address is already in use.  Please change the e-mail address and try again.'
+            error_message = 'Oh no! It looks like the supplied e-mail address is already in use.'
           when 10003
             error_message = 'Oh no! It looks like the supplied e-mail address is too long.  Please shorten it to less than 128 characters and try again.'
           when 10004
@@ -81,4 +89,4 @@ class window.NF.Views.Users.Create extends Ribs.View
     
     @model.save null, options
       
-    return @
+    return false

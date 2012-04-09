@@ -1,5 +1,3 @@
-require 'pp'
-
 module NinjaFund::Routes::API::V1
   class Users < NinjaFund::Routes::API::ApiBase
     get '/api/v1/users' do
@@ -17,7 +15,11 @@ module NinjaFund::Routes::API::V1
       data = File.fnmatch('*/json', request.content_type) ? 
         JSON.parse(request.body.read) : 
         params
-      u = NinjaFund::Model::User.new data
+      u = NinjaFund::Model::User.new(
+        :email => (params[:email] || '').downcase, 
+        :password => params[:password], 
+        :name => params[:name]
+      )
       
       unless u.save
         status 400; error = u.errors.to_a()[0][0]
@@ -34,6 +36,20 @@ module NinjaFund::Routes::API::V1
         :name => u.name,
         :email => u.email
       }}.to_json
+    end
+    
+    delete '/api/v1/users/:id' do
+      u = NinjaFund::Model::User.get params[:id]
+      
+      unless u
+        status 400; return {
+          :status => 400,
+          :message => 'Id',
+          :code => 10007
+        }.to_json
+      end
+      
+      u.destroy
     end
   end
 end

@@ -1,6 +1,6 @@
 window.NF.Views.Shared ||= {}
 
-class window.NF.Views.Shared.Error extends Backbone.View
+class window.NF.Views.Shared.Error extends Ribs.View
   className: 'nNote nFailure hideit'
     
   template: JST['shared/error']

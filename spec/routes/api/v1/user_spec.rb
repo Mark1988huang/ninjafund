@@ -156,4 +156,28 @@ describe "the users api (v1) interface" do
       last_response.body.should == @expected
     end
   end
+  
+  context "when deleting a user" do
+    it "should return an error when the user cannot be found" do
+      delete '/api/v1/users/1'
+      
+      @expected = {
+        :status => 400,
+        :message => 'Id',
+        :code => 10007
+      }.to_json
+      
+      last_response.should_not be_ok
+      last_response.body.should == @expected
+    end
+    
+    it "should remove the user" do
+      u = NinjaFund::Model::User.create :email => 'test@test.com', :name => 'test', :password => 'password'
+      
+      delete "/api/v1/users/#{u.id}"
+      
+      last_response.should be_ok
+      NinjaFund::Model::User.all().length.should == 0    
+    end
+  end
 end

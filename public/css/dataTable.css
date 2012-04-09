@@ -82,6 +82,7 @@ tr.even { background-color: white; }
 .top .dataTables_info { float: none; }
 .clear { clear: both; }
 .dataTables_empty { text-align: center; }
+table td .imgBtn { position: relative; top: 3px; left: 10px; cursor: pointer; }
 
 tfoot input { margin: 0.5em 0; width: 100%; color: #444; }
 tfoot input.search_init { color: #999; }

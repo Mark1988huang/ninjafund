@@ -10,6 +10,7 @@ module NinjaFund::Model
     #    10004 - A name is required when creating a new user.
     #    10005 - The specified user name is invalid.
     #    10006 - A password is required when creating a new user.
+    #    10007 - The user with the supplied ID cannot be located.
     #    1000? - An unexpected error occurred while creating the new user.
     
     # set the table name for the User class
