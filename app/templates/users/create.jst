@@ -1,4 +1,4 @@
-<form class="mainForm">
+<form id="create-user" class="mainForm">
   <div class="title">
     <h5>Users</h5>
   </div>
@@ -7,15 +7,15 @@
       <h5 class="iAdminUser">Create User</h5>
     </div>
     <div class="rowElem noborder pt0 pb0">
-      <label>Name:</label>
-      <div class="formRight">
+      <label class="pb0">Name:</label>
+      <div class="formRight mb0">
         <input id="name" type="text" maxlength="128" class="validate[required]" name="name">
       </div>
       <div class="fix"></div>
     </div>
     <div class="rowElem noborder pt0 pb0">
-      <label>e-Mail:</label>
-      <div class="formRight">
+      <label class="pb0">e-Mail:</label>
+      <div class="formRight mb0">
         <input id="email" type="text" maxlength="128" class="validate[required,custom[email]]" name="email">
       </div>
       <div class="fix"></div>
@@ -28,7 +28,7 @@
       <div class="fix"></div>
     </div>
     <input id="cancel" type="button" value="Cancel" class="greyishBtn submitForm" />
-    <input id="submit" type="submit" value="Save" class="greyishBtn floatright" />
+    <input id="submit" type="button" value="Save" class="greyishBtn submitForm mr0 ml0" />
     <div class="fix"></div>
   </div>  
 </form>

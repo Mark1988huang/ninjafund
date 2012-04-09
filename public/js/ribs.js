@@ -147,6 +147,8 @@
       _.each(views, function (view) {
         view._invokeRemoval();
       });
+
+      Ribs.View.__super__.remove.apply(this);
     }
   });
 }).call(this);

@@ -1,3 +1,5 @@
+require 'pp'
+
 module NinjaFund::Routes::API::V1
   class Users < NinjaFund::Routes::API::ApiBase
     get '/api/v1/users' do
@@ -11,7 +13,11 @@ module NinjaFund::Routes::API::V1
     end
     
     post '/api/v1/users' do
-      u = NinjaFund::Model::User.new; u.attributes = params
+      # Check whether the request is a JSON request or a normal request.
+      data = File.fnmatch('*/json', request.content_type) ? 
+        JSON.parse(request.body.read) : 
+        params
+      u = NinjaFund::Model::User.new data
       
       unless u.save
         status 400; error = u.errors.to_a()[0][0]
