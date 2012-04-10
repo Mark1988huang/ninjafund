@@ -16,9 +16,9 @@ module NinjaFund::Routes::API::V1
         JSON.parse(request.body.read) : 
         params
       u = NinjaFund::Model::User.new(
-        :email => (params[:email] || '').downcase, 
-        :password => params[:password], 
-        :name => params[:name]
+        :email => (data['email'] || '').downcase, 
+        :password => data['password'], 
+        :name => data['name']
       )
       
       unless u.save
