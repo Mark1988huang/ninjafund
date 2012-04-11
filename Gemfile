@@ -21,7 +21,6 @@ gem 'json'
 # setup the development group dependencies
 group :development do
   gem 'shotgun', '0.9'
-  gem 'guard-coffeescript'
   gem 'therubyracer', '0.9.9'
 end
 
@@ -31,6 +30,7 @@ group :development, :test do
   gem 'jammit-sinatra',
     :git => 'git://github.com/joesteele/jammit-sinatra.git', 
     :require => 'jammit/sinatra'
+  gem 'guard-coffeescript'
 end
 
 # setup the test group dependencies
@@ -52,4 +52,7 @@ group :test do
     :require => false
   gem 'jasmine', '1.1.2'
   gem 'dm-sqlite-adapter', '1.2.0'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'guard-cucumber'
 end  

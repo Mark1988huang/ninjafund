@@ -3,14 +3,9 @@ ENV['RACK_ENV'] ||= 'test'
 require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
-require 'rack/test'
-require 'bcrypt'
 
 set :environment, :test
-  
 Bundler.require :default, :test
-
-require 'mocha'
 
 begin 
   require_relative '../lib/ninjafund'
