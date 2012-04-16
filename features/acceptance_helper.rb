@@ -21,7 +21,7 @@ end
 RSpec.configure do |conf|
   conf.include Capybara
   
-  Capybara.javascript_driver = :webkit
+  Capybara.default_driver = :webkit
   
   DataMapper.setup :default, 'sqlite3::memory:'
 end

@@ -19,9 +19,10 @@ end
 
 Then /^I should see my Dashboard$/ do
   current_path.should == '/'
+  page.has_content? 'Dashboard'
 end
 
 Then /^I should see the Logon Page with an error$/ do
   current_path.should == '/logon'
-  page.has_selector?('nNote nFailure')
+  page.has_selector? 'nNote nFailure'
 end
