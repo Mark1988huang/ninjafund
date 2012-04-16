@@ -51,8 +51,11 @@ group :test do
     '0.10.4', 
     :require => false
   gem 'jasmine', '1.1.2'
+  gem 'jasmine-headless-webkit'
+  gem 'guard-jasmine-headless-webkit'
   gem 'dm-sqlite-adapter', '1.2.0'
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'guard-cucumber'
+  gem 'ejs'
 end  

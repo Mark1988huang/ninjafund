@@ -55,7 +55,7 @@ javascripts:
         - public/js/backbone.js 
         - public/js/ribs.js   
     jst:
-        - app/templates/**/*.jst
+        - app/templates/**/*.jst.ejs
     application:
         - public/backbone/ninjafund.js
         - public/backbone/models/**/*.js        

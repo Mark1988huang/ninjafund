@@ -12,6 +12,15 @@ guard :coffeescript, :all_on_start => true, :output => 'public/backbone' do
 	watch %r{^app/(.+)\.coffee$}
 end
 
+guard :coffeescript, :all_on_start => true, :output => 'spec/javascripts' do
+	watch %r{^spec/coffeescripts/(.+)\.coffee$}
+end
+
+guard 'jasmine-headless-webkit' do
+	watch 'spec/spec_helper.rb'
+	watch %r{^spec/(.+)_spec\.js$}
+end
+
 guard :cucumber do
   watch 'features/acceptance_helper.rb'
   watch %r{^features/(.+)\.feature$}

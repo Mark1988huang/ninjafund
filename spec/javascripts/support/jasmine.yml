@@ -1,0 +1,128 @@
+# src_files
+#
+# Return an array of filepaths relative to src_dir to include before jasmine specs.
+# Default: []
+#
+# EXAMPLE:
+#
+# src_files:
+#   - lib/source1.js
+#   - lib/source2.js
+#   - dist/**/*.js
+#
+src_files:
+  - js/jquery-1.7.1.js
+  - js/spinner/jquery.mousewheel.js
+  - js/spinner/ui.spinner.js
+  - js/jquery-ui-1.8.18.js 
+  - js/fileManager/elfinder.min.js
+  - js/wysiwyg/jquery.wysiwyg.js
+  - js/wysiwyg/wysiwyg.image.js
+  - js/wysiwyg/wysiwyg.link.js
+  - js/wysiwyg/wysiwyg.table.js
+  - js/flot/jquery.flot.js
+  - js/flot/jquery.flot.pie.js
+  - js/flot/excanvas.min.js
+  - js/flot/jquery.flot.resize.js
+  - js/dataTables/jquery.dataTables.js
+  - js/dataTables/jquery.dataTables.extensions.js
+  - js/dataTables/colResizable.min.js
+  - js/forms/forms.js
+  - js/forms/autogrowtextarea.js
+  - js/forms/autotab.js
+  - js/forms/jquery.validationEngine-en.js
+  - js/forms/jquery.validationEngine.js
+  - js/forms/jquery.dualListBox.js
+  - js/forms/jquery.filestyle.js
+  - js/colorPicker/colorpicker.js
+  - js/uploader/plupload.js
+  - js/uploader/plupload.html5.js
+  - js/uploader/plupload.html4.js
+  - js/uploader/jquery.plupload.queue.js
+  - js/ui/progress.js
+  - js/ui/jquery.jgrowl.js
+  - js/ui/jquery.tipsy.js
+  - js/ui/jquery.alerts.js
+  - js/wizards/jquery.form.wizard.js
+  - js/wizards/jquery.validate.js
+  - js/wizards/jquery.smartWizard.min.js
+  - js/jBreadCrumb.1.1.js
+  - js/cal.min.js
+  - js/jquery.collapsible.min.js
+  - js/jquery.ToTop.js
+  - js/jquery.listnav.js
+  - js/jquery.sourcerer.js
+  - js/jquery.timeentry.min.js
+  - js/jquery.prettyPhoto.js
+  - js/underscore.js
+  - js/underscore.string.js
+  - js/backbone.js 
+  - js/ribs.js
+  - ../app/templates/**/*.jst.ejs
+  - backbone/ninjafund.js
+  - backbone/models/**/*.js        
+  - backbone/collections/**/*.js
+  - backbone/views/**/*.js
+  - backbone/routers/**/*.js
+
+# stylesheets
+#
+# Return an array of stylesheet filepaths relative to src_dir to include before jasmine specs.
+# Default: []
+#
+# EXAMPLE:
+#
+# stylesheets:
+#   - css/style.css
+#   - stylesheets/*.css
+#
+stylesheets:
+  - css/main.css
+
+# helpers
+#
+# Return an array of filepaths relative to spec_dir to include before jasmine specs.
+# Default: ["helpers/**/*.js"]
+#
+# EXAMPLE:
+#
+# helpers:
+#   - helpers/**/*.js
+#
+helpers:
+  - helpers/**/*.js
+
+# spec_files
+#
+#  Return an array of filepaths relative to spec_dir to include.
+# Default: ["**/*[sS]pec.js"]
+#
+# EXAMPLE:
+#
+# spec_files:
+#   - **/*[sS]pec.js
+#
+spec_files:
+  - '**/*spec.js'
+
+# src_dir
+#
+# Source directory path. Your src_files must be returned relative to this path. Will use root if left blank.
+# Default: project root
+#
+# EXAMPLE:
+#
+# src_dir: public
+#
+src_dir: public
+
+# spec_dir
+#
+# Spec directory path. Your spec_files must be returned relative to this path.
+# Default: spec/javascripts
+#
+# EXAMPLE:
+#
+# spec_dir: spec/javascripts
+#
+spec_dir: spec/javascripts
