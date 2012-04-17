@@ -18,3 +18,10 @@ Feature: Users logon
       | test@company.com    | secret    | see my Dashboard                 |      
       | admin@ninjafund.com | incorrect | see the Logon Page with an error |
       | not@registered.com  | password  | see the Logon Page with an error |
+      
+  Scenario Outline: Logon Excellence
+    Given I am on the logon page
+    And no one is registered
+    When I try and login with "user@ninjafund.com" and password "password"
+    And I press Logon
+    Then I should see the Logon Page with an error

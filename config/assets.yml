@@ -53,11 +53,12 @@ javascripts:
         - public/js/underscore.js
         - public/js/underscore.string.js
         - public/js/backbone.js 
-        - public/js/ribs.js   
+        - public/js/ribs.js  
     jst:
         - app/templates/**/*.jst.ejs
     application:
         - public/backbone/ninjafund.js
+        - public/backbone/shared/**/*.js
         - public/backbone/models/**/*.js        
         - public/backbone/collections/**/*.js
         - public/backbone/views/**/*.js

@@ -4,12 +4,12 @@ module NinjaFund::Model
     #
     # Error codes for the user API are as follows:
     #
-    #    10001 - An e-mail address is required when creating a new user.
+    #    10001 - An e-mail address is required for users.
     #    10002 - The specified e-mail address is already in use.
     #    10003 - The specified e-mail address is invalid.
-    #    10004 - A name is required when creating a new user.
+    #    10004 - A name is required for a user.
     #    10005 - The specified user name is invalid.
-    #    10006 - A password is required when creating a new user.
+    #    10006 - A password is for a user.
     #    10007 - The user with the supplied ID cannot be located.
     #    1000? - An unexpected error occurred while creating the new user.
     

@@ -17,8 +17,8 @@ guard :coffeescript, :all_on_start => true, :output => 'spec/javascripts' do
 end
 
 guard 'jasmine-headless-webkit' do
-	watch 'spec/spec_helper.rb'
 	watch %r{^spec/(.+)_spec\.js$}
+	watch(%r{^app/(.+)\.coffee$}) { |m| "spec/javascripts/#{m[1]}_spec.js" }
 end
 
 guard :cucumber do
