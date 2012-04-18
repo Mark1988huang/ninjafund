@@ -54,6 +54,7 @@ javascripts:
         - public/js/underscore.string.js
         - public/js/backbone.js 
         - public/js/ribs.js  
+        - public/js/locale.js
     jst:
         - app/templates/**/*.jst.ejs
     application:
