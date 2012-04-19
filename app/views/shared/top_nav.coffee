@@ -10,11 +10,11 @@ class window.NF.Views.Shared.TopNav extends Ribs.View
   
   initialize: (options) ->
     @model.on 'change', @_on_model_change, @
-    return @
+    @
     
   render: =>
     $(@el).html @template(@model.toJSON())
-    return @
+    @
     
   #
   # Event Handlers
@@ -28,11 +28,11 @@ class window.NF.Views.Shared.TopNav extends Ribs.View
       success: ->
         window.location = '/logon'
     }
-    return false
+    false
   
   _on_model_change: (model) =>
     changes = model.changedAttributes()
   
     # Change the name of the current user if it has been updated.
-    @.$('.name').text(changes.name) if changes.name
-    return @
+    @$('.name').text(changes.name) if changes.name
+    @

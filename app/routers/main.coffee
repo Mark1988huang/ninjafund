@@ -14,6 +14,6 @@ class window.NF.Routers.Main extends Backbone.Router
 	  window.NF.Master.$('#content').html view.render().el
 	  
 	  window.NF.Master.$('li:not(.dash) a.active, li.dash a:not(.active)').toggleClass 'active'
-	  return @
+	  @
 
 (window.NF.Application ||= {})['main'] = new window.NF.Routers.Main

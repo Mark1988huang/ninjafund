@@ -8,7 +8,7 @@ class window.NF.Views.Master extends Ribs.View
     $(@el).html @template()
     
     # Render the content of the children in the proper locations.
-    @.$('#topNav').replaceWith @views['top_nav'].render().el
-    @.$('#header').replaceWith @views['header'].render().el
-    @.$('#footer').replaceWith @views['footer'].render().el
-    return @
+    @$('#topNav').replaceWith @views['top_nav'].render().el
+    @$('#header').replaceWith @views['header'].render().el
+    @$('#footer').replaceWith @views['footer'].render().el
+    @

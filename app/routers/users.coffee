@@ -16,7 +16,7 @@ class window.NF.Routers.Users extends Backbone.Router
     window.NF.Master.$('#content').html view.render().el
     
     window.NF.Master.$('li:not(.users) a.active, li.users a:not(.active)').toggleClass 'active'
-    return @
+    @
     
   _create: =>
     return false if window.NF.Master.views['content'] && !window.NF.Master.views['content'].remove()
@@ -28,6 +28,6 @@ class window.NF.Routers.Users extends Backbone.Router
     window.NF.Master.$('#content').html view.render().el
     
     window.NF.Master.$('li:not(.users) a.active, li.users a:not(.active)').toggleClass 'active'
-    return @
+    @
       
 (window.NF.Application ||= {})['users'] = new window.NF.Routers.Users      

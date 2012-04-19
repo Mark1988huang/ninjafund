@@ -164,7 +164,7 @@ describe "the users api (v1) interface" do
       @expected = {
         :status => 400,
         :message => 'Id',
-        :code => 10007
+        :code => 10008
       }.to_json
       
       last_response.should_not be_ok

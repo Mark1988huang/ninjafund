@@ -14,7 +14,7 @@ class window.NF.Views.Users.Create extends Ribs.View
 
   initialize: ->
     @model.collection = @collection
-    return @
+    @
 
   remove: =>
     $('.formError').remove()
@@ -25,21 +25,21 @@ class window.NF.Views.Users.Create extends Ribs.View
     
     # Initialize the validation indicators.
     @$('#create-user').validationEngine()   
-    return @
+    @
     
   #
   # Event Handlers
   #
   _on_change: (e) =>
-    value = e.currentTarget.value.trim(),
+    value = e.currentTarget.value.trim()
     unless value == ''
       @model.set e.currentTarget.name, value,
         silent: true
-    return @
+    @
   
   _on_cancel: =>
     Backbone.history.navigate '/users', { trigger: true }
-    return @
+    @
 
   _on_keyup: (e) =>
     switch e.keyCode
@@ -47,7 +47,7 @@ class window.NF.Views.Users.Create extends Ribs.View
         @_on_cancel()
       when 13
         @_on_submit()
-    return @
+    @
 
   _on_submit: =>
     @views['error'].remove() if @views['error']
@@ -56,7 +56,7 @@ class window.NF.Views.Users.Create extends Ribs.View
       wait: true
       success: (model, response) =>
         Backbone.history.navigate '/users', { trigger: true }
-        return @
+        @
       error: (model, xhr) =>
         # Convert the response to a JSON object.
         resp = JSON.parse xhr.responseText
@@ -65,6 +65,6 @@ class window.NF.Views.Users.Create extends Ribs.View
         error_message = window.Errors.get resp.code.toString()
         # Add the error view to the collection of child views
         $.jGrowl '<p>' + error_message + '</p>', { theme: 'nNote nFailure' }
-        return @
+        @
     
-    return false
+    false

@@ -9,4 +9,4 @@ class window.NF.Views.Shared.Header extends Ribs.View
   
   render: =>
     $(@el).html @template()
-    return @
+    @

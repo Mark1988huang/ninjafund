@@ -7,4 +7,4 @@ class window.NF.Views.Shared.Footer extends Ribs.View
   
   render: =>
     $(@el).html @template()
-    return @
+    @

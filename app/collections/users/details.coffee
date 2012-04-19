@@ -5,5 +5,6 @@ class window.NF.Collections.Users.Details extends Backbone.Collection
   
   model: window.NF.Models.Users.Detail
   
-  parse: (response) ->
-    return response.users
+  parse: (resp) ->
+    return resp.users if resp.users
+    resp
