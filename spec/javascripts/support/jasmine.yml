@@ -58,6 +58,7 @@ src_files:
   - js/underscore.string.js
   - js/backbone.js 
   - js/ribs.js
+  - js/sinon-1.3.2.js
   - ../app/templates/**/*.jst.ejs
   - backbone/ninjafund.js
   - backbone/models/**/*.js        

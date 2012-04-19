@@ -16,3 +16,6 @@ describe 'NF.Models.Users.Detail', ->
           another: 'value'
           
       expect(target.parse(response)).toBe response.user
+    
+    @
+  @
