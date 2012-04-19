@@ -1,4 +1,5 @@
 template_function: _.template
+template_extension: jst.ejs
 compress_assets: off
 
 stylesheets:
@@ -58,8 +59,9 @@ javascripts:
     jst:
         - app/templates/**/*.jst.ejs
     application:
+        - public/backbone/errors/errors.js
+        - public/backbone/errors/*.js
         - public/backbone/ninjafund.js
-        - public/backbone/shared/**/*.js
         - public/backbone/models/**/*.js        
         - public/backbone/collections/**/*.js
         - public/backbone/views/**/*.js

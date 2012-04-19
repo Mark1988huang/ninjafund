@@ -20,6 +20,9 @@
 		<!-- Initialize the application -->	
 		<script type="text/javascript" charset="utf-8">
 			$().ready(function() {
+			  // Initialize the error handling for the application.
+			  window.Errors.init(locale.current);
+			  
 				// Initialize the master view for the application and the default children.
 				window.NF.Master = new window.NF.Views.Master({
 					views: {
